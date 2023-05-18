@@ -1,0 +1,26 @@
+{
+    "plant": {
+        "plantName": "Tomato",
+        "hoursOfSun": "6-8 hours",
+        "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
+        "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
+        "startIndoors": "April 15",
+        "transplantOutdoors": "May 20"
+    },
+    "plant2": {
+        "plantName": "Carrot",
+        "hoursOfSun": "6-8 hours",
+        "goodNeighbors": "Tomatoes, Beans, Lettuce, Onions",
+        "badNeighbors": "Dill, Parsnip, Radish",
+        "startIndoors": "Do not start indoors",
+        "transplantOutdoors": "April 15"
+    },
+    "plant3": {
+        "plantName": "Broccoli",
+        "hoursOfSun": "4-6 hours",
+        "goodNeighbors": "Potatoes, Lettuce",
+        "badNeighbors": "Tomatoes, Peppers, Beans, Squash, Strawberries",
+        "startIndoors": "Do not start indoors",
+        "transplantOutdoors": "April 15"
+    }
+}
