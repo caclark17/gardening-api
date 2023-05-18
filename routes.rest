@@ -1,1 +1,17 @@
 GET http://localhost:3000 HTTP/1.1
+
+###
+GET http://localhost:3000/gardening
+
+### CREATE PLANT 
+POST http://localhost:3000/gardening HTTP/1.1
+content-type: application/json
+
+{
+        "plantName": "Tomato",
+        "hoursOfSun": "6-8 hours",
+        "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
+        "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
+        "startIndoors": "April 15",
+        "transplantOutdoors": "May 20"
+}

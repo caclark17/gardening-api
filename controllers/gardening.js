@@ -22,4 +22,55 @@ const getSingle = async (req, res, next) => {
   });
 };
 
-module.exports = { getAll, getSingle };
+const createPlant = async (req, res) => {
+    const plant = {
+        plantName: req.body.plantName, 
+        hoursOfSun: req.body.hoursOfSun,
+        goodNeighbors: req.body.goodNeighbors, 
+        badNeighbors: req.body.badNeighbors,
+        startIndoors: req.body.startIndoors,
+        transplantOutdoors: req.body.transplantOutdoors
+    };
+    const response = await mongodb.getDB().db('gardening').collection('gardening').insertOne(plant);
+    if (response.acknowledged) {
+        res.status(201).json(response);
+    } else {
+        res.status(500).json(response.error || 'An error occurred while creating the plant.');
+    }
+};
+
+const updatePlant = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const plant = {
+        plantName: req.body.plantName, 
+        hoursOfSun: req.body.hoursOfSun,
+        goodNeighbors: req.body.goodNeighbors, 
+        badNeighbors: req.body.badNeighbors,
+        startIndoors: req.body.startIndoors,
+        transplantOutdoors: req.body.transplantOutdoors
+    };
+    const response = await mongodb
+        .getDB()
+        .db('gardening')
+        .collection('gardening')
+        .replaceOne({ _id: userId }, plant);
+    console.log(response);
+    if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'An error occurred while updating the plant.');
+    }
+};
+
+const deletePlant = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb.getDB().db('gardening').collection('gardening').deleteOne({ _id: userId}, true);
+    console.log(response);
+    if (response.deletedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error || 'An error occurred while deleting the plant.');
+    }
+};
+
+module.exports = { getAll, getSingle, createPlant, updatePlant, deletePlant };
