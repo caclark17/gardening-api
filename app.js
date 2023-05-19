@@ -8,7 +8,7 @@ const app = express();
 
 
 app.get('/', (req, res) => {
-    res.send('Working');
+    res.send('Connection is working');
 })
 
 app
