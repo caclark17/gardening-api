@@ -2,7 +2,7 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
-  const result = await mongodb.getDb().db().collection('gardening').find();
+  const result = await mongodb.getDb().db('gardening').collection('gardening').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
@@ -13,7 +13,7 @@ const getSingle = async (req, res, next) => {
   const plantId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
-    .db()
+    .db('gardening')
     .collection('gardening')
     .find({ _id: plantId });
   result.toArray().then((lists) => {
@@ -31,7 +31,7 @@ const createPlant = async (req, res) => {
         startIndoors: req.body.startIndoors,
         transplantOutdoors: req.body.transplantOutdoors
     };
-    const response = await mongodb.getDB().db().collection('gardening').insertOne(plant);
+    const response = await mongodb.getDB().db('gardening').collection('gardening').insertOne(plant);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -51,7 +51,7 @@ const updatePlant = async (req, res) => {
     };
     const response = await mongodb
         .getDB()
-        .db()
+        .db('gardening')
         .collection('gardening')
         .replaceOne({ _id: plantId }, plant);
     console.log(response);
@@ -64,7 +64,7 @@ const updatePlant = async (req, res) => {
 
 const deletePlant = async (req, res) => {
     const plantId = new ObjectId(req.params.id);
-    const response = await mongodb.getDB().db().collection('gardening').deleteOne({ _id: plantId}, true);
+    const response = await mongodb.getDB().db('gardening').collection('gardening').deleteOne({ _id: plantId}, true);
     console.log(response);
     if (response.deletedCount > 0) {
         res.status(204).send();
