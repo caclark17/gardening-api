@@ -1,7 +1,7 @@
 GET http://localhost:8080 HTTP/1.1
 
 ###
-GET http://localhost:8080/gardening/64667323b0ccf4c0f136d032 HTTP/1.1
+GET http://localhost:8080/gardening HTTP/1.1
 
 ### CREATE PLANT 
 POST http://localhost:8080/gardening HTTP/1.1
@@ -30,7 +30,7 @@ content-type: application/json
  }
 
 ### EDIT PLANT THROUGH RENDER
-PUT https://gardening-app.onerender.com/gardening HTTP/1.1
+PUT https://gardening-app.onerender.com/gardening/6468f3764eb079058b534465 HTTP/1.1
 content-type: application/json
 
 ### DELETE PLANT ON RENDER
