@@ -31,7 +31,7 @@ const createPlant = async (req, res) => {
         startIndoors: req.body.startIndoors,
         transplantOutdoors: req.body.transplantOutdoors
     };
-    const response = await mongodb.getDB().db('gardening').collection('gardening').insertOne(plant);
+    const response = await mongodb.getDb().db('gardening').collection('gardening').insertOne(plant);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -50,7 +50,7 @@ const updatePlant = async (req, res) => {
         transplantOutdoors: req.body.transplantOutdoors
     };
     const response = await mongodb
-        .getDB()
+        .getDb()
         .db('gardening')
         .collection('gardening')
         .replaceOne({ _id: plantId }, plant);
@@ -64,7 +64,7 @@ const updatePlant = async (req, res) => {
 
 const deletePlant = async (req, res) => {
     const plantId = new ObjectId(req.params.id);
-    const response = await mongodb.getDB().db('gardening').collection('gardening').deleteOne({ _id: plantId}, true);
+    const response = await mongodb.getDb().db('gardening').collection('gardening').deleteOne({ _id: plantId}, true);
     console.log(response);
     if (response.deletedCount > 0) {
         res.status(204).send();
