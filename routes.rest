@@ -8,12 +8,12 @@ POST http://localhost:8080/gardening HTTP/1.1
 content-type: application/json
 
  {
-    "plantName": "Tomato",
-    "hoursOfSun": "6-8 hours",
-    "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
-    "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
-    "startIndoors": "April 15",
-    "transplantOutdoors": "May 20"
+   "plantName": "Tomato",
+   "hoursOfSun": "6-8 hours",
+   "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
+   "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
+   "startIndoors": "April 15",
+   "transplantOutdoors": "May 20"
  }
 
 ### CREATE PLANT THROUGH RENDER
@@ -21,11 +21,11 @@ POST https://gardening-app.onrender.com/gardening HTTP/1.1
 content-type: application/json
 
  {
-    "plantName": "Tomato",
-    "hoursOfSun": "6-8 hours",
-    "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
-    "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
-    "startIndoors": "April 15",
-    "transplantOutdoors": "May 20"
+   "plantName": "Tomato",
+   "hoursOfSun": "6-8 hours",
+   "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
+   "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
+   "startIndoors": "April 15",
+   "transplantOutdoors": "May 20"
  }
 
