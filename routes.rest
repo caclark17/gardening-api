@@ -29,3 +29,16 @@ content-type: application/json
    "transplantOutdoors": "May 20"
  }
 
+### EDIT PLANT THROUGH RENDER
+PUT https://gardening-app.onerender.com/gardening HTTP/1.1
+content-type: application/json
+
+### DELETE PLANT ON RENDER
+DELETE https://gardening-app.onrender.com/gardening HTTP/1.1
+
+###
+GET https://gardening-app.onrender.com/gardening HTTP/1.1
+
+###
+GET https://gardening-app.onrender.com/gardening HTTP/1.1
+
