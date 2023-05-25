@@ -1,23 +1,38 @@
 GET http://localhost:8080 HTTP/1.1
 
 ###
-GET http://localhost:8080/gardening HTTP/1.1
+GET http://localhost:8080/plants HTTP/1.1
 
 ### CREATE PLANT 
-POST http://localhost:8080/gardening HTTP/1.1
+POST http://localhost:8080/plants HTTP/1.1
 content-type: application/json
 
  {
-   "plantName": "Tomato",
-   "hoursOfSun": "6-8 hours",
-   "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
-   "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
+   "plantName": "Broccoli",
+   "hoursOfSun": "4-6 hours",
+   "goodNeighbors": "Lettuce, Potatoes",
+   "badNeighbors": "Tomatoes, Peppers, Beans, Squash, Strawberries",
    "startIndoors": "April 15",
-   "transplantOutdoors": "May 20"
+   "transplantOutdoors": "May 20",
+   "numPerSqFt": 1
  }
 
 ### CREATE PLANT THROUGH RENDER
-POST https://gardening-app.onrender.com/gardening HTTP/1.1
+POST https://gardening-app.onrender.com/plants HTTP/1.1
+content-type: application/json
+
+{
+   "plantName": "Onion",
+   "hoursOfSun": "4-6 hours",
+   "goodNeighbors": "Beats, Beans, Bassicas, Cabbage, Fruit, Carrots, Lettuce, Broccoli, Cucumbers, Peppers, Strawberries",
+   "badNeighbors": "Lentils, Peas",
+   "startIndoors": "April 15",
+   "transplantOutdoors": "May 20",
+   "numPerSqFt": 1
+}
+
+### EDIT PLANT THROUGH RENDER
+PUT https://gardening-app.onerender.com/gardening/646f88f75e0ab3df2e2b03ba HTTP/1.1
 content-type: application/json
 
  {
@@ -26,19 +41,14 @@ content-type: application/json
    "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
    "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
    "startIndoors": "April 15",
-   "transplantOutdoors": "May 20"
+   "transplantOutdoors": "May 20",
+   "numPerSqFt": 1
  }
 
-### EDIT PLANT THROUGH RENDER
-PUT https://gardening-app.onerender.com/gardening/6468f3764eb079058b534465 HTTP/1.1
-content-type: application/json
-
 ### DELETE PLANT ON RENDER
-DELETE https://gardening-app.onrender.com/gardening HTTP/1.1
+DELETE https://gardening-app.onrender.com/plants/646f874d0dc6ff1532e270cc HTTP/1.1
 
-###
-GET https://gardening-app.onrender.com/gardening HTTP/1.1
+### GET ALL PLANTS ON RENDER
+GET https://gardening-app.onrender.com/plants HTTP/1.1
 
-###
-GET https://gardening-app.onrender.com/gardening HTTP/1.1
 

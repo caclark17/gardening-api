@@ -29,7 +29,8 @@ const createPlant = async (req, res) => {
         goodNeighbors: req.body.goodNeighbors, 
         badNeighbors: req.body.badNeighbors,
         startIndoors: req.body.startIndoors,
-        transplantOutdoors: req.body.transplantOutdoors
+        transplantOutdoors: req.body.transplantOutdoors,
+        numPerSqFt: req.body.numPerSqFt
     };
     const response = await mongodb.getDb().db('gardening').collection('plants').insertOne(plant);
     if (response.acknowledged) {
@@ -47,7 +48,8 @@ const updatePlant = async (req, res) => {
         goodNeighbors: req.body.goodNeighbors, 
         badNeighbors: req.body.badNeighbors,
         startIndoors: req.body.startIndoors,
-        transplantOutdoors: req.body.transplantOutdoors
+        transplantOutdoors: req.body.transplantOutdoors,
+        numPerSqFt: req.body.numPerSqFt
     };
     const response = await mongodb
         .getDb()
