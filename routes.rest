@@ -32,7 +32,7 @@ content-type: application/json
 }
 
 ### EDIT PLANT THROUGH RENDER
-PUT https://gardening-app.onerender.com/gardening/646f88f75e0ab3df2e2b03ba HTTP/1.1
+PUT https://gardening-app.onerender.com/plants/646f88f75e0ab3df2e2b03ba HTTP/1.1
 content-type: application/json
 
  {
