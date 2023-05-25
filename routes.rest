@@ -3,22 +3,8 @@ GET http://localhost:8080 HTTP/1.1
 ###
 GET http://localhost:8080/plants HTTP/1.1
 
-### CREATE PLANT 
+### CREATE PLANT THROUGH LOCAL HOST
 POST http://localhost:8080/plants HTTP/1.1
-content-type: application/json
-
- {
-   "plantName": "Broccoli",
-   "hoursOfSun": "4-6 hours",
-   "goodNeighbors": "Lettuce, Potatoes",
-   "badNeighbors": "Tomatoes, Peppers, Beans, Squash, Strawberries",
-   "startIndoors": "April 15",
-   "transplantOutdoors": "May 20",
-   "numPerSqFt": 1
- }
-
-### CREATE PLANT THROUGH RENDER
-POST https://gardening-app.onrender.com/plants HTTP/1.1
 content-type: application/json
 
 {
@@ -31,8 +17,8 @@ content-type: application/json
    "numPerSqFt": 1
 }
 
-### EDIT PLANT THROUGH RENDER
-PUT https://gardening-app.onerender.com/plants/646f88f75e0ab3df2e2b03ba HTTP/1.1
+### CREATE PLANT THROUGH RENDER
+POST https://gardening-app.onrender.com/plants HTTP/1.1
 content-type: application/json
 
  {
@@ -41,12 +27,26 @@ content-type: application/json
    "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
    "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
    "startIndoors": "April 15",
-   "transplantOutdoors": "May 20",
+   "transplantOutdoors": "May 5",
    "numPerSqFt": 1
  }
 
+### EDIT PLANT THROUGH RENDER
+PUT https://gardening-app.onrender.com/plants/46f8b29dbb47e7843968a232 HTTP/1.1
+content-type: application/json
+
+ {
+  "plantName": "Onion",
+  "hoursOfSun": "4-6 hours",
+  "goodNeighbors": "Beats, Beans, Bassicas, Cabbage, Fruit, Carrots, Lettuce, Broccoli, Cucumbers, Peppers, Strawberries",
+  "badNeighbors": "Lentils, Peas",
+  "startIndoors": "April 15",
+  "transplantOutdoors": "May 10",
+  "numPerSqFt": 1
+}
+
 ### DELETE PLANT ON RENDER
-DELETE https://gardening-app.onrender.com/plants/646f874d0dc6ff1532e270cc HTTP/1.1
+DELETE https://gardening-app.onrender.com/plants/646f87e4dbb47e7843968a22 HTTP/1.1
 
 ### GET ALL PLANTS ON RENDER
 GET https://gardening-app.onrender.com/plants HTTP/1.1
