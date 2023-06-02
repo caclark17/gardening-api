@@ -17,38 +17,48 @@ content-type: application/json
    "numPerSqFt": 1
 }
 
+### EDIT PLANT THROUGH LOCAL HOST
+POST http://localhost:8080/plants HTTP/1.1
+content-type: application/json
+
+
+### DELETE PLANT THROUGH LOCAL HOST
+POST http://localhost:8080/plants/646f975869a5387e427b51d7 HTTP/1.1
+
+
 ### CREATE PLANT THROUGH RENDER
 POST https://gardening-app.onrender.com/plants HTTP/1.1
 content-type: application/json
 
  {
-   "plantName": "Tomato",
+   "plantName": "Cucumbers",
    "hoursOfSun": "6-8 hours",
-   "goodNeighbors": "Broccoli, Peppers, Celery, Asparagus, Cabbage",
-   "badNeighbors": "Corn, Rosemary, Dill, Chili Peppers, Peas, Potatoes, Fennel",
+   "goodNeighbors": "Beans, Kohlrabi Lettuce",
+   "badNeighbors": "Potatoes, Aromatic Herbs",
    "startIndoors": "April 15",
    "transplantOutdoors": "May 5",
-   "numPerSqFt": 1
+   "numPerSqFt": "1"
  }
 
 ### EDIT PLANT THROUGH RENDER
-PUT https://gardening-app.onrender.com/plants/46f8b29dbb47e7843968a232 HTTP/1.1
+PUT https://gardening-app.onrender.com/plants/64702f7f382e5df5d0eb1012 HTTP/1.1
 content-type: application/json
 
  {
-  "plantName": "Onion",
-  "hoursOfSun": "4-6 hours",
-  "goodNeighbors": "Beats, Beans, Bassicas, Cabbage, Fruit, Carrots, Lettuce, Broccoli, Cucumbers, Peppers, Strawberries",
-  "badNeighbors": "Lentils, Peas",
-  "startIndoors": "April 15",
-  "transplantOutdoors": "May 10",
-  "numPerSqFt": 1
-}
+   "plantName": "Cucumbers",
+   "hoursOfSun": "6-8 hours",
+   "goodNeighbors": "Beans, Kohlrabi Lettuce",
+   "badNeighbors": "Potatoes, Aromatic Herbs",
+   "startIndoors": "April 15",
+   "transplantOutdoors": "May 21",
+   "numPerSqFt": "1"
+ }
 
 ### DELETE PLANT ON RENDER
-DELETE https://gardening-app.onrender.com/plants/646f87e4dbb47e7843968a22 HTTP/1.1
+DELETE https://gardening-app.onrender.com/plants/646f975869a5387e427b51d7 HTTP/1.1
 
 ### GET ALL PLANTS ON RENDER
 GET https://gardening-app.onrender.com/plants HTTP/1.1
+content-type: application/json
 
 
