@@ -4,12 +4,12 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = (req, res) => {
   try {
-    mongodb
+    const result = await mongodb
       .getDb()
       .db('gardening')
       .collection('plants')
-      .find()
-      .toArray((err, lists) => {
+      .find();
+      result.toArray((err, lists) => {
         if (err) {
           res.status(400).json({ message: err });
         }
@@ -26,13 +26,13 @@ const getAll = (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
       res.status(400).json('Must use a valid contact id to find a contact.');
     }
-    const userId = new ObjectId(req.params.id);
-    mongodb
+    const plantId = new ObjectId(req.params.id);
+    const result = await mongodb
       .getDb()
       .db('gardening')
       .collection('plants')
-      .find({ _id: plantId })
-      .toArray((err, result) => {
+      .find({ _id: plantId });
+      result.toArray((err, result) => {
         if (err) {
           res.status(400).json({ message: err });
         }
@@ -42,7 +42,7 @@ const getAll = (req, res) => {
 } catch (err) {
   res.status(204).send();
 }
-  };
+};
 
 const createPlant = async (req, res) => {
     try {
@@ -64,7 +64,7 @@ const createPlant = async (req, res) => {
   } catch (err) {
     res.status(204).send();
   }
-    };
+  };
 
 const updatePlant = async (req, res) => {
     try {
@@ -95,7 +95,7 @@ const updatePlant = async (req, res) => {
 } catch (err) {
   res.status(204).send();
 }
-  };
+};
 
 const deletePlant = async (req, res) => {
     try {
@@ -113,6 +113,6 @@ const deletePlant = async (req, res) => {
 } catch (err) {
   res.status(204).send();
 }
-  };
+};
 
 module.exports = { getAll, getSingle, createPlant, updatePlant, deletePlant };
