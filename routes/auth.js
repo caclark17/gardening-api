@@ -14,3 +14,5 @@ router.get('/logout', (req,res) => {
 router.get('/google', (req, res) => {
     res.send('login with google');
 });
+
+module.exports = router;

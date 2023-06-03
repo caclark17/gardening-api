@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
+const authRoutes = require('./routes/auth');
 
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 8080;
@@ -10,6 +11,8 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('Connection is working');
 })
+
+app.use('/auth', authRoutes);
 
 app
     .use(bodyParser.json())

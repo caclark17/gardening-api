@@ -2,7 +2,7 @@ const res = require('express/lib/response');
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-const getAll = (req, res) => {
+const getAll = async (req, res) => {
   try {
     const result = await mongodb
       .getDb()
@@ -21,7 +21,7 @@ const getAll = (req, res) => {
 }
 };
 
-  const getSingle = (req, res) => {
+  const getSingle = async (req, res) => {
     try {
     if (!ObjectId.isValid(req.params.id)) {
       res.status(400).json('Must use a valid contact id to find a contact.');
