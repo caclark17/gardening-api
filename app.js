@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
-const authRoutes = require('./routes/auth');
+// const authRoutes = require('./routes/auth');
+const { auth } = require('express-openid-connect');
 
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 8080;
@@ -12,7 +13,7 @@ app.get('/', (req, res) => {
     res.send('Connection is working');
 })
 
-app.use('/auth', authRoutes);
+// app.use('/auth', authRoutes);
 
 app
     .use(bodyParser.json())
@@ -29,4 +30,21 @@ mongodb.initDb((err) => {
         app.listen(port);
         console.log(`Connected to DB and listening on ${port}`);
     }
+});
+
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'WqG9Y65gV3alwbu8KuvKFQr3IJsGmgbUrw9EbobptNt9Iqss2_Lr89Wl9ygHeJSl',
+    baseURL: 'http://localhost:8080',
+    clientID: 'F3OfOHzSg2kVwWOaRbSAqrUljYniZ9Gk',
+    issuerBaseURL: 'dev-t527q6xrv3ythcah.us.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged In' : 'Logged Out');
 });
