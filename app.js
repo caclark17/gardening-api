@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
-// const authRoutes = require('./routes/auth');
 const { auth } = require('express-openid-connect');
 
 // eslint-disable-next-line no-undef
@@ -12,8 +11,6 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('Connection is working');
 })
-
-// app.use('/auth', authRoutes);
 
 app
     .use(bodyParser.json())
@@ -35,10 +32,10 @@ mongodb.initDb((err) => {
 const config = {
     authRequired: false,
     auth0Logout: true,
-    secret: 'WqG9Y65gV3alwbu8KuvKFQr3IJsGmgbUrw9EbobptNt9Iqss2_Lr89Wl9ygHeJSl',
+    secret: 'process.env.SECRET',
     baseURL: 'http://localhost:8080',
     clientID: 'F3OfOHzSg2kVwWOaRbSAqrUljYniZ9Gk',
-    issuerBaseURL: 'dev-t527q6xrv3ythcah.us.auth0.com'
+    issuerBaseURL: 'https://dev-t527q6xrv3ythcah.us.auth0.com'
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
