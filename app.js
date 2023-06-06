@@ -34,7 +34,7 @@ const config = {
     auth0Logout: true,
     secret: 'process.env.SECRET',
     baseURL: 'http://localhost:8080',
-    clientID: 'F3OfOHzSg2kVwWOaRbSAqrUljYniZ9Gk',
+    clientID: 'process.env.CLIENT_ID',
     issuerBaseURL: 'https://dev-t527q6xrv3ythcah.us.auth0.com'
 };
 
