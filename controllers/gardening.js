@@ -16,7 +16,7 @@ const getAll = async (req, res) => {
         res.status(200).json(lists);
       });
 } catch (err) {
-  res.status(500).json({ message: err.message});
+  res.status(500).json(err);
 }
 };
 
@@ -39,7 +39,7 @@ const getAll = async (req, res) => {
         res.status(200).json(result[0]);
       });
 } catch (err) {
-  res.status(500).json({ message: err.message});
+  res.status(500).json(err);
 }
 };
 
@@ -61,7 +61,7 @@ const createPlant = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while creating the plant.');
     }
   } catch (err) {
-    res.status(500).json({ message: err.message});
+    res.status(500).json(err);
   }
   };
 
@@ -92,7 +92,7 @@ const updatePlant = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while updating the plant.');
     }
 } catch (err) {
-  res.status(500).json({ message: err.message});
+  res.status(500).json(err);
 }
 };
 
@@ -110,7 +110,7 @@ const deletePlant = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while deleting the plant.');
     }
 } catch (err) {
-  res.status(500).json({ message: err.message});
+  res.status(500).json(err);
 }
 };
 

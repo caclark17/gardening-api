@@ -1,6 +1,6 @@
 GET http://localhost:8080 HTTP/1.1
 
-###
+### GET ALL PLANTS THROUGH LOCAL HOST
 GET http://localhost:8080/plants HTTP/1.1
 
 ### CREATE PLANT THROUGH LOCAL HOST
