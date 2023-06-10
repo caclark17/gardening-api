@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
@@ -17,7 +16,7 @@ const getAll = async (req, res) => {
         res.status(200).json(lists);
       });
 } catch (err) {
-  res.status(204).send();
+  res.status(500).json({ message: err.message});
 }
 };
 
@@ -40,7 +39,7 @@ const getAll = async (req, res) => {
         res.status(200).json(result[0]);
       });
 } catch (err) {
-  res.status(204).send();
+  res.status(500).json({ message: err.message});
 }
 };
 
@@ -62,7 +61,7 @@ const createPlant = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while creating the plant.');
     }
   } catch (err) {
-    res.status(204).send();
+    res.status(500).json({ message: err.message});
   }
   };
 
@@ -93,7 +92,7 @@ const updatePlant = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while updating the plant.');
     }
 } catch (err) {
-  res.status(204).send();
+  res.status(500).json({ message: err.message});
 }
 };
 
@@ -111,7 +110,7 @@ const deletePlant = async (req, res) => {
         res.status(500).json(response.error || 'An error occurred while deleting the plant.');
     }
 } catch (err) {
-  res.status(204).send();
+  res.status(500).json({ message: err.message});
 }
 };
 
