@@ -33,7 +33,7 @@ const config = {
     authRequired: false,
     auth0Logout: true,
     secret: 'process.env.SECRET',
-    baseURL: 'http://localhost:8080',
+    baseURL: 'https://gardening-app.onrender.com',
     clientID: 'process.env.CLIENT_ID',
     issuerBaseURL: 'https://dev-t527q6xrv3ythcah.us.auth0.com'
 };
